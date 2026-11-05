@@ -1,0 +1,59 @@
+@import "tailwindcss";
+
+:root {
+  --ivory-primary: #EEEAE1;
+  --ivory-secondary: #F5F1E9;
+  --ink-primary: #191917;
+  --charcoal-dark: #24221F;
+  --sandstone-warm: #CCB99F;
+  --walnut-dark: #493025;
+  --brass-muted: #9B815A;
+  --burgundy-accent: #552A32;
+}
+
+@theme {
+  --color-ivory-primary: #EEEAE1;
+  --color-ivory-secondary: #F5F1E9;
+  --color-ink-primary: #191917;
+  --color-charcoal-dark: #24221F;
+  --color-sandstone-warm: #CCB99F;
+  --color-walnut-dark: #493025;
+  --color-brass-muted: #9B815A;
+  --color-burgundy-accent: #552A32;
+
+  --font-serif-display: var(--font-cormorant), "Times New Roman", Georgia, serif;
+  --font-sans-body: var(--font-geist), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-mono-tech: var(--font-mono), Menlo, Monaco, Consolas, monospace;
+}
+
+html, body {
+  background-color: var(--ivory-primary);
+  color: var(--ink-primary);
+  font-family: var(--font-geist), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+.font-serif-display {
+  font-family: var(--font-cormorant), "Times New Roman", Georgia, serif;
+}
+
+.font-sans-body {
+  font-family: var(--font-geist), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+.font-mono-tech {
+  font-family: var(--font-mono), Menlo, Monaco, Consolas, monospace;
+}
+
+/* Subtle architectural grid lines */
+.architectural-grid {
+  background-size: 64px 64px;
+  background-image: 
+    linear-gradient(to right, rgba(204, 185, 159, 0.12) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(204, 185, 159, 0.12) 1px, transparent 1px);
+}
