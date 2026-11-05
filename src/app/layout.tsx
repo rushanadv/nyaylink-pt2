@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
-import { Cormorant_Garamond, Geist, IBM_Plex_Mono } from "next/font/google";
+import { Instrument_Serif, Geist } from "next/font/google";
 import "./globals.css";
 
-const cormorant = Cormorant_Garamond({
-  variable: "--font-cormorant",
+const instrumentSerif = Instrument_Serif({
+  variable: "--font-instrument",
+  weight: "400",
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
   display: "swap",
 });
 
@@ -15,17 +15,10 @@ const geist = Geist({
   display: "swap",
 });
 
-const ibmPlexMono = IBM_Plex_Mono({
-  variable: "--font-mono",
-  subsets: ["latin"],
-  weight: ["400", "500", "600"],
-  display: "swap",
-});
-
 export const metadata: Metadata = {
-  title: "NyayLink — Legal Services Marketplace & Advisory",
+  title: "NyayLink — Justice, Made Accessible",
   description:
-    "Technology, trust and legal expertise — working together for a fairer India. Connecting citizens, enterprises, and verified advocates across India.",
+    "Find verified lawyers, get legal guidance, and manage your cases — all in one place.",
 };
 
 export default function RootLayout({
@@ -36,9 +29,9 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${cormorant.variable} ${geist.variable} ${ibmPlexMono.variable} h-full antialiased`}
+      className={`${instrumentSerif.variable} ${geist.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col bg-[#EEEAE1] text-[#191917] selection:bg-[#493025] selection:text-[#EEEAE1]">
+      <body className="min-h-full flex flex-col bg-[#0d0d0f] text-[#EEEAE1] selection:bg-[#cbb69d] selection:text-[#0d0d0f]">
         {children}
       </body>
     </html>

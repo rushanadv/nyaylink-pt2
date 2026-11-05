@@ -1,83 +1,62 @@
+"use client";
+
 import React from "react";
 
 interface NyayLinkLogoProps {
   className?: string;
-  size?: "sm" | "md" | "lg";
-  variant?: "full" | "mark" | "stacked";
+  markOnly?: boolean;
 }
 
 export const NyayLinkLogo: React.FC<NyayLinkLogoProps> = ({
   className = "",
-  size = "md",
-  variant = "full",
+  markOnly = false,
 }) => {
-  const pixelSizes = {
-    sm: 24,
-    md: 32,
-    lg: 44,
-  };
-
-  const currentPx = pixelSizes[size];
-
-  const wordmarkSizes = {
-    sm: "text-base tracking-[0.2em]",
-    md: "text-lg tracking-[0.22em]",
-    lg: "text-2xl tracking-[0.25em]",
-  };
-
   return (
-    <div className={`flex items-center gap-3.5 select-none ${className}`}>
-      {/* Architectural Symbol: Three columns, lintel, and the subtle brass equity fulcrum */}
-      <div
-        className="relative flex items-center justify-center shrink-0"
-        style={{ width: `${currentPx}px`, height: `${currentPx}px` }}
-      >
+    <div className={`flex items-center gap-3 select-none ${className}`}>
+      {/* Precision Geometric Architectural Emblem */}
+      <div className="relative w-8 h-8 flex items-center justify-center shrink-0">
         <svg
-          width={currentPx}
-          height={currentPx}
-          viewBox="0 0 44 44"
+          viewBox="0 0 32 32"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
-          style={{ color: "#191917", display: "block" }}
-          aria-label="NyayLink Architectural Pillar Mark"
+          className="w-7 h-7 text-[#F9F6F0]"
+          aria-label="NyayLink Emblem"
         >
-          {/* Subtle base stylobate step */}
-          <rect x="4" y="38" width="36" height="2.5" rx="0.5" fill="currentColor" opacity="0.9" />
-          <rect x="7" y="34.5" width="30" height="2" rx="0.5" fill="currentColor" opacity="0.6" />
-
-          {/* Three classical columns */}
-          {/* Left Column */}
-          <rect x="10" y="14" width="4" height="19" rx="0.75" fill="currentColor" />
-          <path d="M9 13.5H15V14.5H9V13.5Z" fill="currentColor" opacity="0.8" />
-          
-          {/* Center Column (slightly dignified prominence) */}
-          <rect x="20" y="12" width="4" height="21" rx="0.75" fill="currentColor" />
-          <path d="M19 11.5H25V12.5H19V11.5Z" fill="currentColor" opacity="0.8" />
-          
-          {/* Right Column */}
-          <rect x="30" y="14" width="4" height="19" rx="0.75" fill="currentColor" />
-          <path d="M29 13.5H35V14.5H29V13.5Z" fill="currentColor" opacity="0.8" />
-
-          {/* Upper Entablature Architrave */}
-          <rect x="6" y="9" width="32" height="3" rx="0.75" fill="currentColor" />
-          <rect x="8" y="6" width="28" height="2" rx="0.5" fill="#9B815A" />
-
-          {/* Brass Fulcrum / Sun Disk of Equity */}
-          <circle cx="22" cy="4" r="2" fill="#9B815A" />
+          {/* Outer faceted geometric octagonal / judicial shield border */}
+          <path
+            d="M16 2.5L25.5 6.5V17.5L16 29.5L6.5 17.5V6.5L16 2.5Z"
+            stroke="currentColor"
+            strokeWidth="1.5"
+            strokeLinejoin="round"
+            className="opacity-95"
+          />
+          {/* Inner concentric geometric diamond & scales fulcrum */}
+          <path
+            d="M16 7L21.5 14.5L16 22L10.5 14.5L16 7Z"
+            stroke="currentColor"
+            strokeWidth="1.2"
+            strokeLinejoin="round"
+            className="opacity-80"
+          />
+          {/* Center pillar axis */}
+          <line
+            x1="16"
+            y1="9.5"
+            x2="16"
+            y2="19.5"
+            stroke="currentColor"
+            strokeWidth="1.5"
+            strokeLinecap="round"
+          />
+          {/* Fulcrum balance dot */}
+          <circle cx="16" cy="14.5" r="1.5" fill="currentColor" />
         </svg>
       </div>
 
-      {variant !== "mark" && (
-        <div className="flex flex-col justify-center">
-          <span
-            className={`font-serif-display font-semibold text-[#191917] leading-none ${wordmarkSizes[size]}`}
-          >
-            NYAYLINK
-          </span>
-          <span className="font-mono-tech text-[9px] tracking-[0.28em] text-[#66625C] mt-1 uppercase">
-            Legal Ecosystem · India
-          </span>
-        </div>
+      {!markOnly && (
+        <span className="font-sans-body font-semibold text-[19px] sm:text-[20px] tracking-[-0.015em] text-[#F9F6F0]">
+          NyayLink
+        </span>
       )}
     </div>
   );

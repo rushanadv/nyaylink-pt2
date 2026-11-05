@@ -1,30 +1,33 @@
 "use client";
 
 import React from "react";
-import { HeroActions } from "./HeroActions";
-import { motion, useReducedMotion, Variants } from "framer-motion";
-import { Scale, FileText, Briefcase } from "lucide-react";
+import Link from "next/link";
+import { ArrowRight } from "lucide-react";
+import { motion, useReducedMotion } from "framer-motion";
 
 export const HeroContent: React.FC = () => {
   const shouldReduceMotion = useReducedMotion();
 
-  const containerVariants: Variants = {
+  const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: shouldReduceMotion ? 0 : 0.1,
-        delayChildren: 0.05,
+        staggerChildren: shouldReduceMotion ? 0 : 0.12,
+        delayChildren: shouldReduceMotion ? 0 : 0.1,
       },
     },
   };
 
-  const itemVariants: Variants = {
-    hidden: { opacity: 0, y: shouldReduceMotion ? 0 : 16 },
+  const itemVariants = {
+    hidden: { opacity: 0, y: shouldReduceMotion ? 0 : 18 },
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.6, ease: "easeOut" },
+      transition: {
+        duration: shouldReduceMotion ? 0.3 : 0.8,
+        ease: [0.16, 1, 0.3, 1] as const,
+      },
     },
   };
 
@@ -33,97 +36,54 @@ export const HeroContent: React.FC = () => {
       variants={containerVariants}
       initial="hidden"
       animate="visible"
-      className="flex flex-col justify-center h-full space-y-6 lg:space-y-8 py-4 sm:py-6 lg:pr-6 xl:pr-10"
+      className="relative z-20 max-w-[560px] lg:max-w-[580px] xl:max-w-[620px] flex flex-col justify-center"
     >
-      {/* Eyebrow: OUR MISSION with refined hairline rule */}
-      <motion.div
-        variants={itemVariants}
-        className="flex items-center space-x-3.5"
-      >
-        <span className="font-mono-tech text-[11px] sm:text-[12px] tracking-[0.22em] uppercase text-[#66625C] font-semibold">
-          OUR MISSION
+      {/* Eyebrow Label */}
+      <motion.div variants={itemVariants} className="mb-4 sm:mb-5">
+        <span className="font-sans-body text-[11px] sm:text-[11.5px] lg:text-[12px] uppercase tracking-[0.24em] text-stone-300/85 font-medium">
+          INDIA&apos;S LEGAL ACCESS PLATFORM
         </span>
-        <div className="h-[1px] w-12 sm:w-16 bg-[#CCB99F]/70" />
       </motion.div>
 
       {/* Main Headline */}
-      <motion.div variants={itemVariants} className="space-y-1">
-        <h1 className="font-serif-display font-light text-[40px] leading-[1.02] sm:text-[54px] md:text-[60px] lg:text-[52px] xl:text-[64px] 2xl:text-[72px] text-[#191917] tracking-[-0.015em]">
-          ACCESS TO JUSTICE,
-          <span className="block italic font-normal text-[#24221F]">
-            FOR EVERY CITIZEN.
-          </span>
+      <motion.div variants={itemVariants} className="mb-5 sm:mb-6">
+        <h1 className="font-serif-editorial text-[50px] sm:text-[64px] md:text-[72px] lg:text-[78px] xl:text-[86px] text-[#F9F6F0] leading-[0.98] tracking-[-0.015em] font-normal">
+          Justice, Made
+          <br />
+          Accessible.
         </h1>
       </motion.div>
 
       {/* Supporting Description */}
-      <motion.div variants={itemVariants} className="max-w-lg">
-        <p className="font-sans-body text-[15px] sm:text-[17px] lg:text-[18px] leading-[1.6] text-[#33312E] font-normal">
-          &ldquo;Technology, trust and legal expertise — working together for a
-          fairer India.&rdquo;
+      <motion.div variants={itemVariants} className="mb-8 sm:mb-9 max-w-[480px]">
+        <p className="font-sans-body text-[15px] sm:text-[16px] lg:text-[16.5px] leading-[1.58] text-stone-300/80 font-normal">
+          Find verified lawyers, get legal guidance,
+          <br className="hidden sm:inline" />
+          {" "}and manage your cases &mdash; all in one place.
         </p>
       </motion.div>
 
-      {/* Action CTAs */}
-      <motion.div variants={itemVariants}>
-        <HeroActions />
-      </motion.div>
-
-      {/* Three Architectural Ecosystem Pillars */}
+      {/* CTA Buttons */}
       <motion.div
         variants={itemVariants}
-        className="pt-6 lg:pt-8 border-t border-[#CCB99F]/40"
+        className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 sm:gap-4"
       >
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 lg:gap-3 xl:gap-5">
-          {/* Vertical 1: Marketplace */}
-          <div className="space-y-1">
-            <div className="flex items-center space-x-1.5 text-[#9B815A]">
-              <Scale className="w-3.5 h-3.5 shrink-0" />
-              <span className="font-mono-tech text-[10px] tracking-[0.14em] uppercase text-[#66625C] font-semibold">
-                Marketplace
-              </span>
-            </div>
-            <p className="text-[12px] leading-snug text-[#24221F]">
-              Verified advocates & Bar Council credential checks.
-            </p>
-          </div>
+        {/* Primary CTA */}
+        <Link
+          href="#legal-help"
+          className="group inline-flex items-center justify-center gap-2 px-6 sm:px-7 py-3 sm:py-3.5 rounded-md bg-[#F9F6F0] hover:bg-white text-[#151413] text-[14px] sm:text-[14.5px] font-medium shadow-sm transition-all duration-200 active:scale-[0.99] focus:outline-none focus-visible:ring-2 focus-visible:ring-white/70"
+        >
+          <span>Get Legal Help</span>
+          <ArrowRight className="w-4 h-4 text-[#151413] transition-transform duration-200 group-hover:translate-x-0.5" />
+        </Link>
 
-          {/* Vertical 2: Intake */}
-          <div className="space-y-1">
-            <div className="flex items-center space-x-1.5 text-[#9B815A]">
-              <FileText className="w-3.5 h-3.5 shrink-0" />
-              <span className="font-mono-tech text-[10px] tracking-[0.14em] uppercase text-[#66625C] font-semibold">
-                Assisted Intake
-              </span>
-            </div>
-            <p className="text-[12px] leading-snug text-[#24221F]">
-              Multilingual procedural guidance & smart routing.
-            </p>
-          </div>
-
-          {/* Vertical 3: SaaS */}
-          <div className="space-y-1">
-            <div className="flex items-center space-x-1.5 text-[#9B815A]">
-              <Briefcase className="w-3.5 h-3.5 shrink-0" />
-              <span className="font-mono-tech text-[10px] tracking-[0.14em] uppercase text-[#66625C] font-semibold">
-                Advocate SaaS
-              </span>
-            </div>
-            <p className="text-[12px] leading-snug text-[#24221F]">
-              Digital dockets, calendars & practice workflows.
-            </p>
-          </div>
-        </div>
-
-        {/* Legal Regulatory Compliance Assurance */}
-        <div className="flex flex-wrap items-center justify-between gap-2 text-[10px] sm:text-[11px] text-[#66625C] pt-3 mt-3 font-mono-tech border-t border-[#CCB99F]/20">
-          <span className="tracking-wider uppercase">
-            Advocates Act (1961) Compliant
-          </span>
-          <span className="tracking-wider uppercase">
-            Neutral Ecosystem · Confidential
-          </span>
-        </div>
+        {/* Secondary CTA */}
+        <Link
+          href="#join-lawyer"
+          className="inline-flex items-center justify-center px-6 sm:px-7 py-3 sm:py-3.5 rounded-md bg-transparent hover:bg-white/5 border border-white/25 hover:border-white/45 text-[#F9F6F0] text-[14px] sm:text-[14.5px] font-medium transition-all duration-200 active:scale-[0.99] focus:outline-none focus-visible:ring-2 focus-visible:ring-white/50"
+        >
+          Join as Lawyer
+        </Link>
       </motion.div>
     </motion.div>
   );

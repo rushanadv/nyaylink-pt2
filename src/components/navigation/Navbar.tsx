@@ -3,132 +3,126 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { NyayLinkLogo } from "@/components/branding/NyayLinkLogo";
-import { Menu, X, ArrowUpRight } from "lucide-react";
+import { ArrowRight, Menu, X } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
 
-interface NavItem {
-  label: string;
-  href: string;
-  isActive?: boolean;
-}
-
-const navItems: NavItem[] = [
-  { label: "Home", href: "#", isActive: true },
-  { label: "Features", href: "#features" },
+const navLinks = [
+  { label: "Home", href: "/" },
+  { label: "Discover", href: "#discover" },
   { label: "For Citizens", href: "#citizens" },
   { label: "For Advocates", href: "#advocates" },
   { label: "About", href: "#about" },
 ];
 
 export const Navbar: React.FC = () => {
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <header className="relative w-full z-50 bg-[#EEEAE1]/95 backdrop-blur-md border-b border-[#CCB99F]/30 transition-colors duration-200">
-      <div className="max-w-[1540px] mx-auto px-6 sm:px-10 lg:px-14 h-20 sm:h-22 flex items-center justify-between">
-        {/* Left: Original NyayLink Architectural Wordmark */}
+    <header className="relative w-full z-40">
+      <div className="w-full max-w-[1720px] mx-auto px-6 sm:px-10 lg:px-[8%] pt-6 sm:pt-7 pb-4 flex items-center justify-between">
+        {/* Left: Brand Identity */}
         <Link
-          href="#"
-          className="group flex items-center focus:outline-none focus-visible:ring-2 focus-visible:ring-[#9B815A] rounded py-1 transition-transform duration-200"
+          href="/"
+          className="flex items-center focus:outline-none focus-visible:ring-1 focus-visible:ring-white/50 rounded-sm"
           aria-label="NyayLink Home"
         >
-          <NyayLinkLogo size="md" />
+          <NyayLinkLogo />
         </Link>
 
-        {/* Centre: Desktop Navigation Links */}
+        {/* Centre: Nav links */}
         <nav
-          className="hidden md:flex items-center space-x-1 lg:space-x-2"
-          aria-label="Main Navigation"
+          className="hidden md:flex items-center space-x-7 lg:space-x-8"
+          aria-label="Main navigation"
         >
-          {navItems.map((item) => (
+          {navLinks.map((item) => (
             <Link
               key={item.label}
               href={item.href}
-              className={`relative px-4 py-2 text-[13px] lg:text-[14px] font-medium tracking-[0.06em] uppercase transition-all duration-200 ${
-                item.isActive
-                  ? "text-[#191917] font-semibold"
-                  : "text-[#66625C] hover:text-[#191917]"
-              }`}
+              className="text-[13.5px] lg:text-[14px] font-normal text-stone-200/80 hover:text-[#F9F6F0] transition-colors duration-200"
             >
               {item.label}
-              {item.isActive && (
-                <span className="absolute bottom-0 left-4 right-4 h-[1.5px] bg-[#493025] rounded-full" />
-              )}
             </Link>
           ))}
         </nav>
 
-        {/* Right: Actions */}
-        <div className="hidden sm:flex items-center space-x-4 lg:space-x-6">
+        {/* Right: Auth & Get Started Actions */}
+        <div className="hidden sm:flex items-center space-x-3.5 lg:space-x-4">
           <Link
             href="#login"
-            className="text-[13px] lg:text-[14px] font-medium tracking-[0.06em] text-[#24221F] hover:text-[#191917] px-3 py-2 transition-colors duration-150"
+            className="text-[13.5px] lg:text-[14px] font-medium text-[#F9F6F0] border border-white/20 hover:border-white/40 hover:bg-white/5 px-4 py-2 rounded-md transition-all duration-200 focus:outline-none focus-visible:ring-1 focus-visible:ring-white/50"
           >
-            Log In
+            Log in
           </Link>
 
           <Link
             href="#get-started"
-            className="group relative inline-flex items-center justify-center px-5 py-2.5 text-[13px] lg:text-[14px] font-medium tracking-[0.06em] text-[#EEEAE1] bg-[#24221F] hover:bg-[#191917] transition-all duration-200 rounded-[2px] shadow-sm hover:shadow active:scale-[0.98]"
+            className="inline-flex items-center gap-1.5 text-[13.5px] lg:text-[14px] font-medium text-[#151413] bg-[#F9F6F0] hover:bg-white px-4 py-2 rounded-md shadow-sm transition-all duration-200 hover:shadow active:scale-[0.99] focus:outline-none focus-visible:ring-1 focus-visible:ring-stone-300"
           >
             <span>Get Started</span>
-            <ArrowUpRight className="ml-1.5 w-3.5 h-3.5 text-[#CCB99F] transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+            <ArrowRight className="w-3.5 h-3.5 text-[#151413]" />
           </Link>
         </div>
 
-        {/* Mobile Hamburger Button */}
+        {/* Mobile menu trigger */}
         <div className="flex sm:hidden items-center">
           <button
             type="button"
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="p-2 text-[#24221F] hover:text-[#191917] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#9B815A] rounded"
-            aria-label="Toggle navigation menu"
-            aria-expanded={isMobileMenuOpen}
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            className="p-2 text-stone-200 hover:text-white focus:outline-none focus-visible:ring-1 focus-visible:ring-white/50 rounded-md"
+            aria-label="Toggle mobile navigation menu"
+            aria-expanded={mobileMenuOpen}
           >
-            {isMobileMenuOpen ? (
-              <X className="w-6 h-6" />
+            {mobileMenuOpen ? (
+              <X className="w-5 h-5" />
             ) : (
-              <Menu className="w-6 h-6" />
+              <Menu className="w-5 h-5" />
             )}
           </button>
         </div>
       </div>
 
-      {/* Mobile Drawer Menu */}
-      {isMobileMenuOpen && (
-        <div className="sm:hidden border-b border-[#CCB99F]/40 bg-[#F5F1E9] px-6 py-6 shadow-lg animate-in fade-in slide-in-from-top-2 duration-200">
-          <nav className="flex flex-col space-y-4">
-            {navItems.map((item) => (
-              <Link
-                key={item.label}
-                href={item.href}
-                onClick={() => setIsMobileMenuOpen(false)}
-                className={`text-base font-medium tracking-[0.08em] uppercase py-1 ${
-                  item.isActive ? "text-[#191917] font-semibold" : "text-[#66625C]"
-                }`}
-              >
-                {item.label}
-              </Link>
-            ))}
-            <div className="pt-4 border-t border-[#CCB99F]/30 flex flex-col space-y-3">
-              <Link
-                href="#login"
-                onClick={() => setIsMobileMenuOpen(false)}
-                className="text-base font-medium text-[#24221F] py-2"
-              >
-                Log In
-              </Link>
-              <Link
-                href="#get-started"
-                onClick={() => setIsMobileMenuOpen(false)}
-                className="inline-flex items-center justify-center px-5 py-3 text-sm font-medium tracking-wider text-[#EEEAE1] bg-[#24221F] rounded-[2px]"
-              >
-                Get Started
-                <ArrowUpRight className="ml-2 w-4 h-4 text-[#CCB99F]" />
-              </Link>
-            </div>
-          </nav>
-        </div>
-      )}
+      {/* Mobile Drawer */}
+      <AnimatePresence>
+        {mobileMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            transition={{ duration: 0.2 }}
+            className="sm:hidden absolute top-full left-0 w-full bg-[#0D0D0F]/95 backdrop-blur-xl border-b border-white/10 px-6 py-6 shadow-2xl"
+          >
+            <nav className="flex flex-col space-y-4">
+              {navLinks.map((item) => (
+                <Link
+                  key={item.label}
+                  href={item.href}
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="text-[15px] font-medium text-stone-200 hover:text-white py-1"
+                >
+                  {item.label}
+                </Link>
+              ))}
+              <div className="pt-4 border-t border-white/10 flex flex-col space-y-3">
+                <Link
+                  href="#login"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="w-full text-center text-sm font-medium text-[#F9F6F0] border border-white/20 py-2.5 rounded-md"
+                >
+                  Log in
+                </Link>
+                <Link
+                  href="#get-started"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="w-full inline-flex items-center justify-center gap-1.5 text-sm font-medium text-[#151413] bg-[#F9F6F0] py-2.5 rounded-md"
+                >
+                  <span>Get Started</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </Link>
+              </div>
+            </nav>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </header>
   );
 };

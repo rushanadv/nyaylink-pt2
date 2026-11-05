@@ -1,34 +1,28 @@
 @import "tailwindcss";
 
 :root {
-  --ivory-primary: #EEEAE1;
-  --ivory-secondary: #F5F1E9;
-  --ink-primary: #191917;
-  --charcoal-dark: #24221F;
+  --ivory-primary: #F9F6F0;
+  --ivory-muted: #D6D0C4;
+  --dark-bg: #0D0D0F;
+  --dark-charcoal: #151413;
   --sandstone-warm: #CCB99F;
-  --walnut-dark: #493025;
-  --brass-muted: #9B815A;
-  --burgundy-accent: #552A32;
+  --sandstone-gold: #E8DAC8;
 }
 
 @theme {
-  --color-ivory-primary: #EEEAE1;
-  --color-ivory-secondary: #F5F1E9;
-  --color-ink-primary: #191917;
-  --color-charcoal-dark: #24221F;
+  --color-ivory-primary: #F9F6F0;
+  --color-ivory-muted: #D6D0C4;
+  --color-dark-bg: #0D0D0F;
+  --color-dark-charcoal: #151413;
   --color-sandstone-warm: #CCB99F;
-  --color-walnut-dark: #493025;
-  --color-brass-muted: #9B815A;
-  --color-burgundy-accent: #552A32;
 
-  --font-serif-display: var(--font-cormorant), "Times New Roman", Georgia, serif;
+  --font-serif-editorial: var(--font-instrument), "Instrument Serif", Georgia, serif;
   --font-sans-body: var(--font-geist), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  --font-mono-tech: var(--font-mono), Menlo, Monaco, Consolas, monospace;
 }
 
 html, body {
-  background-color: var(--ivory-primary);
-  color: var(--ink-primary);
+  background-color: var(--dark-bg);
+  color: var(--ivory-primary);
   font-family: var(--font-geist), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -38,22 +32,10 @@ html, body {
   overflow-x: hidden;
 }
 
-.font-serif-display {
-  font-family: var(--font-cormorant), "Times New Roman", Georgia, serif;
+.font-serif-editorial {
+  font-family: var(--font-instrument), "Instrument Serif", Georgia, serif;
 }
 
 .font-sans-body {
   font-family: var(--font-geist), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-}
-
-.font-mono-tech {
-  font-family: var(--font-mono), Menlo, Monaco, Consolas, monospace;
-}
-
-/* Subtle architectural grid lines */
-.architectural-grid {
-  background-size: 64px 64px;
-  background-image: 
-    linear-gradient(to right, rgba(204, 185, 159, 0.12) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(204, 185, 159, 0.12) 1px, transparent 1px);
 }

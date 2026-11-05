@@ -1,14 +1,9 @@
 import React from "react";
-import { Navbar } from "@/components/navigation/Navbar";
 import { HeroSection } from "@/components/homepage/HeroSection";
 
 export default function Home() {
   return (
-    <main className="min-h-screen flex flex-col bg-[#EEEAE1] selection:bg-[#493025] selection:text-[#EEEAE1]">
-      {/* Navigation */}
-      <Navbar />
-
-      {/* Page 01: The Grand Facade */}
+    <main className="min-h-[100svh] w-full bg-[#0D0D0F]">
       <HeroSection />
     </main>
   );
