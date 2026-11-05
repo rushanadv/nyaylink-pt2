@@ -66,23 +66,32 @@ export const HeroContent: React.FC = () => {
       {/* CTA Buttons */}
       <motion.div
         variants={itemVariants}
-        className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 sm:gap-4"
+        className="flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center gap-3.5 sm:gap-4"
       >
         {/* Primary CTA */}
         <Link
           href="#legal-help"
-          className="group inline-flex items-center justify-center gap-2 px-6 sm:px-7 py-3 sm:py-3.5 rounded-md bg-[#F9F6F0] hover:bg-white text-[#151413] text-[14px] sm:text-[14.5px] font-medium shadow-sm transition-all duration-200 active:scale-[0.99] focus:outline-none focus-visible:ring-2 focus-visible:ring-white/70"
+          className="group inline-flex items-center justify-center gap-2 px-6 sm:px-7 py-3 sm:py-3.5 rounded-md bg-[#F9F6F0] hover:bg-white text-[#151413] text-[14px] sm:text-[14.5px] font-medium shadow-sm transition-all duration-200 active:scale-[0.99] focus:outline-none focus-visible:ring-2 focus-visible:ring-white/70 shrink-0"
         >
           <span>Get Legal Help</span>
           <ArrowRight className="w-4 h-4 text-[#151413] transition-transform duration-200 group-hover:translate-x-0.5" />
         </Link>
 
-        {/* Secondary CTA */}
+        {/* Secondary CTA: Join as Lawyer */}
         <Link
           href="#join-lawyer"
-          className="inline-flex items-center justify-center px-6 sm:px-7 py-3 sm:py-3.5 rounded-md bg-transparent hover:bg-white/5 border border-white/25 hover:border-white/45 text-[#F9F6F0] text-[14px] sm:text-[14.5px] font-medium transition-all duration-200 active:scale-[0.99] focus:outline-none focus-visible:ring-2 focus-visible:ring-white/50"
+          className="inline-flex items-center justify-center px-6 sm:px-7 py-3 sm:py-3.5 rounded-md bg-transparent hover:bg-white/5 border border-white/25 hover:border-white/45 text-[#F9F6F0] text-[14px] sm:text-[14.5px] font-medium transition-all duration-200 active:scale-[0.99] focus:outline-none focus-visible:ring-2 focus-visible:ring-white/50 shrink-0"
         >
           Join as Lawyer
+        </Link>
+
+        {/* Third CTA: For Businesses */}
+        <Link
+          href="#for-businesses"
+          className="group inline-flex items-center justify-center gap-1.5 px-6 sm:px-7 py-3 sm:py-3.5 rounded-md bg-transparent hover:bg-white/5 border border-white/20 hover:border-white/40 text-[#F9F6F0] text-[14px] sm:text-[14.5px] font-medium transition-all duration-200 active:scale-[0.99] focus:outline-none focus-visible:ring-2 focus-visible:ring-white/50 shrink-0"
+        >
+          <span>For Businesses</span>
+          <ArrowRight className="w-3.5 h-3.5 text-[#F9F6F0]/80 transition-transform duration-200 group-hover:translate-x-0.5" />
         </Link>
       </motion.div>
     </motion.div>
