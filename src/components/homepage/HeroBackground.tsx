@@ -8,7 +8,7 @@ export const HeroBackground: React.FC = () => {
   const shouldReduceMotion = useReducedMotion();
 
   return (
-    <div className="absolute inset-0 w-full h-full overflow-hidden select-none pointer-events-none z-0">
+    <div className="absolute inset-0 w-full h-full overflow-hidden select-none pointer-events-none">
       <motion.div
         initial={{ scale: shouldReduceMotion ? 1 : 1.04, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
@@ -19,12 +19,12 @@ export const HeroBackground: React.FC = () => {
         className="relative w-full h-full"
       >
         <Image
-          src="/assets/nyaylink/architecture/hero-courthouse-sunset.webp"
+          src="/assets/nyaylink/architecture/hero-courthouse-4k.webp"
           alt="Monumental Supreme Court judicial courthouse architecture at dramatic sunset with central dome"
           fill
           priority
           sizes="100vw"
-          quality={92}
+          quality={95}
           className="object-cover object-[center_32%] sm:object-[center_28%]"
         />
       </motion.div>

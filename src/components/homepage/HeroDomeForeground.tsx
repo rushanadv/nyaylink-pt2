@@ -9,7 +9,7 @@ export const HeroDomeForeground: React.FC = () => {
 
   return (
     <div
-      className="absolute inset-0 w-full h-full overflow-hidden select-none pointer-events-none z-15"
+      className="hidden sm:block absolute inset-0 w-full h-full overflow-hidden select-none pointer-events-none"
       aria-hidden="true"
     >
       <motion.div
@@ -22,7 +22,7 @@ export const HeroDomeForeground: React.FC = () => {
         className="relative w-full h-full"
       >
         <Image
-          src="/assets/nyaylink/architecture/hero-dome-foreground.webp"
+          src="/assets/nyaylink/architecture/hero-courthouse-dome-4k-cutout.webp"
           alt=""
           fill
           priority
