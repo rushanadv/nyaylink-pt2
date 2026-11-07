@@ -1,28 +1,29 @@
 @import "tailwindcss";
 
 :root {
-  --ivory-primary: #F9F6F0;
-  --ivory-muted: #D6D0C4;
-  --dark-bg: #0D0D0F;
-  --dark-charcoal: #151413;
-  --sandstone-warm: #CCB99F;
-  --sandstone-gold: #E8DAC8;
+  --color-bg-midnight: #050D13;
+  --color-bg-secondary: #0B151D;
+  --color-gold-champagne: #D9AD68;
+  --color-ivory-warm: #F4E8D0;
+  --color-text-muted: #A9ADB0;
+  --color-border-subtle: rgba(218, 180, 119, 0.22);
 }
 
 @theme {
-  --color-ivory-primary: #F9F6F0;
-  --color-ivory-muted: #D6D0C4;
-  --color-dark-bg: #0D0D0F;
-  --color-dark-charcoal: #151413;
-  --color-sandstone-warm: #CCB99F;
+  --color-bg-midnight: #050D13;
+  --color-bg-secondary: #0B151D;
+  --color-gold-champagne: #D9AD68;
+  --color-ivory-warm: #F4E8D0;
+  --color-text-muted: #A9ADB0;
+  --color-border-subtle: rgba(218, 180, 119, 0.22);
 
   --font-serif-editorial: var(--font-instrument), "Instrument Serif", Georgia, serif;
   --font-sans-body: var(--font-geist), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 }
 
 html, body {
-  background-color: var(--dark-bg);
-  color: var(--ivory-primary);
+  background-color: var(--color-bg-midnight);
+  color: var(--color-ivory-warm);
   font-family: var(--font-geist), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;

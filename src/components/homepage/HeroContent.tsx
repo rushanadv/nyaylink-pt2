@@ -1,32 +1,31 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 import Link from "next/link";
-import { ArrowRight, Mic, Sparkles } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { motion, useReducedMotion } from "framer-motion";
 
 export const HeroContent: React.FC = () => {
   const shouldReduceMotion = useReducedMotion();
-  const [questionText, setQuestionText] = useState("");
 
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: shouldReduceMotion ? 0 : 0.1,
-        delayChildren: shouldReduceMotion ? 0 : 0.08,
+        staggerChildren: shouldReduceMotion ? 0 : 0.12,
+        delayChildren: shouldReduceMotion ? 0 : 0.1,
       },
     },
   };
 
   const itemVariants = {
-    hidden: { opacity: 0, y: shouldReduceMotion ? 0 : 16 },
+    hidden: { opacity: 0, y: shouldReduceMotion ? 0 : 18 },
     visible: {
       opacity: 1,
       y: 0,
       transition: {
-        duration: shouldReduceMotion ? 0.3 : 0.7,
+        duration: shouldReduceMotion ? 0.3 : 0.8,
         ease: [0.16, 1, 0.3, 1] as const,
       },
     },
@@ -37,108 +36,50 @@ export const HeroContent: React.FC = () => {
       variants={containerVariants}
       initial="hidden"
       animate="visible"
-      className="relative z-20 max-w-[560px] lg:max-w-[580px] xl:max-w-[620px] flex flex-col justify-center"
+      className="relative z-20 flex flex-col items-center text-center max-w-[1100px] mx-auto select-none px-4"
     >
-      {/* 1. Eyebrow Label */}
-      <motion.div variants={itemVariants} className="mb-3 sm:mb-4">
-        <span className="font-sans-body text-[11px] sm:text-[11.5px] lg:text-[12px] uppercase tracking-[0.24em] text-stone-300/85 font-medium">
+      {/* 1. Eyebrow Label with Thin Champagne Divider Lines */}
+      <motion.div
+        variants={itemVariants}
+        className="flex items-center justify-center space-x-3 sm:space-x-4 mb-4 sm:mb-6"
+      >
+        <div className="h-[1px] w-8 sm:w-16 bg-gradient-to-r from-transparent to-[#D9AD68]/70" />
+        <span className="font-sans-body text-[10.5px] sm:text-[12px] uppercase tracking-[0.26em] sm:tracking-[0.3em] text-[#D9AD68] font-medium">
           INDIA&apos;S LEGAL ACCESS PLATFORM
         </span>
+        <div className="h-[1px] w-8 sm:w-16 bg-gradient-to-l from-transparent to-[#D9AD68]/70" />
       </motion.div>
 
-      {/* 2. Dominant Editorial Headline */}
-      <motion.div variants={itemVariants} className="mb-4 sm:mb-5">
-        <h1 className="font-serif-editorial text-[48px] sm:text-[60px] md:text-[68px] lg:text-[74px] xl:text-[80px] text-[#F9F6F0] leading-[0.98] tracking-[-0.015em] font-normal">
+      {/* 2. Monumental Central Headline */}
+      <motion.div variants={itemVariants} className="mb-6 sm:mb-8">
+        <h1 className="font-serif-editorial text-[56px] sm:text-[76px] md:text-[90px] lg:text-[108px] xl:text-[120px] text-[#F4E8D0] leading-[0.95] tracking-[-0.02em] font-normal drop-shadow-[0_4px_30px_rgba(0,0,0,0.6)]">
           Justice, Made
           <br />
           Accessible.
         </h1>
       </motion.div>
 
-      {/* 3. Supporting Description */}
-      <motion.div variants={itemVariants} className="mb-6 sm:mb-7 max-w-[480px]">
-        <p className="font-sans-body text-[15px] sm:text-[16px] lg:text-[16.5px] leading-[1.55] text-stone-300/80 font-normal">
-          Find verified lawyers, get legal guidance,
-          <br className="hidden sm:inline" />
-          {" "}and manage your cases &mdash; all in one place.
-        </p>
-      </motion.div>
-
-      {/* 4. Primary CTA Buttons (Prominent Primary Actions) */}
+      {/* 3. Two Prominent Primary CTA Buttons */}
       <motion.div
         variants={itemVariants}
-        className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 sm:gap-4"
+        className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-5 w-full max-w-[480px]"
       >
-        {/* Primary Action: Get Legal Help */}
+        {/* Primary CTA: Get Legal Help */}
         <Link
           href="#legal-help"
-          className="group inline-flex items-center justify-center gap-2 px-6 sm:px-7 py-3 sm:py-3.5 rounded-md bg-[#F9F6F0] hover:bg-white text-[#151413] text-[14px] sm:text-[14.5px] font-medium shadow-sm transition-all duration-200 active:scale-[0.99] focus:outline-none focus-visible:ring-2 focus-visible:ring-white/70 shrink-0"
+          className="group w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-3.5 sm:py-4 rounded-md bg-[#D9AD68] hover:bg-[#E2BA77] text-[#050D13] text-[14.5px] sm:text-[15px] font-semibold tracking-wide shadow-[0_8px_24px_rgba(217,173,104,0.3)] transition-all duration-200 active:scale-[0.99] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#D9AD68] shrink-0"
         >
           <span>Get Legal Help</span>
-          <ArrowRight className="w-4 h-4 text-[#151413] transition-transform duration-200 group-hover:translate-x-0.5" />
+          <ArrowRight className="w-4 h-4 text-[#050D13] transition-transform duration-200 group-hover:translate-x-0.5" />
         </Link>
 
-        {/* Secondary Action: Join as Lawyer */}
+        {/* Secondary CTA: Join as Lawyer */}
         <Link
           href="#join-lawyer"
-          className="inline-flex items-center justify-center px-6 sm:px-7 py-3 sm:py-3.5 rounded-md bg-transparent hover:bg-white/5 border border-white/25 hover:border-white/45 text-[#F9F6F0] text-[14px] sm:text-[14.5px] font-medium transition-all duration-200 active:scale-[0.99] focus:outline-none focus-visible:ring-2 focus-visible:ring-white/50 shrink-0"
+          className="w-full sm:w-auto inline-flex items-center justify-center px-8 py-3.5 sm:py-4 rounded-md bg-[#050D13]/40 hover:bg-[#D9AD68]/10 border border-[#D9AD68]/45 hover:border-[#D9AD68] text-[#F4E8D0] text-[14.5px] sm:text-[15px] font-medium tracking-wide transition-all duration-200 active:scale-[0.99] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#D9AD68] shrink-0"
         >
           Join as Lawyer
         </Link>
-      </motion.div>
-
-      {/* 5. Additional Entry Point: NyayLink AI Pre-Consultation Input */}
-      <motion.div
-        variants={itemVariants}
-        className="mt-6 sm:mt-7 pt-5 sm:pt-6 border-t border-white/12 max-w-[500px]"
-      >
-        {/* Editorial Label */}
-        <div className="flex flex-col space-y-0.5 mb-2.5">
-          <div className="flex items-center gap-1.5">
-            <Sparkles className="w-3 h-3 text-[#CCB99F]" aria-hidden="true" />
-            <span className="font-sans-body text-[10.5px] sm:text-[11px] uppercase tracking-[0.22em] text-[#CCB99F] font-semibold">
-              NYAYLINK AI
-            </span>
-          </div>
-          <p className="font-sans-body text-[13px] sm:text-[13.5px] text-stone-300/80 font-normal">
-            Prefer to start with a question?
-          </p>
-        </div>
-
-        {/* Horizontal Input Container */}
-        <form
-          onSubmit={(e) => {
-            e.preventDefault();
-          }}
-          className="relative flex items-center w-full rounded-md bg-[#131214]/85 backdrop-blur-md border border-white/18 hover:border-white/30 focus-within:border-[#CCB99F]/70 focus-within:ring-1 focus-within:ring-[#CCB99F]/40 p-1.5 transition-all duration-200 shadow-[0_8px_24px_rgba(0,0,0,0.35)]"
-        >
-          <input
-            type="text"
-            value={questionText}
-            onChange={(e) => setQuestionText(e.target.value)}
-            placeholder="Describe your legal problem in any language..."
-            className="flex-1 min-w-0 bg-transparent px-3 py-1.5 text-[13.5px] sm:text-[14px] text-[#F9F6F0] placeholder:text-stone-400/60 focus:outline-none"
-            aria-label="Describe your legal problem in any language"
-          />
-
-          {/* Microphone Icon Button */}
-          <button
-            type="button"
-            aria-label="Voice input"
-            className="p-2 text-stone-300/80 hover:text-[#F9F6F0] hover:bg-white/5 rounded-md transition-colors shrink-0 cursor-pointer"
-          >
-            <Mic className="w-4 h-4 text-[#CCB99F]" />
-          </button>
-
-          {/* Ivory Ask → Button */}
-          <button
-            type="submit"
-            className="inline-flex items-center gap-1.5 px-4 py-2 rounded-md bg-[#F9F6F0] hover:bg-white text-[#151413] text-[13px] sm:text-[13.5px] font-medium shadow-sm transition-all duration-150 active:scale-[0.98] shrink-0 cursor-pointer"
-          >
-            <span>Ask</span>
-            <ArrowRight className="w-3.5 h-3.5 text-[#151413]" />
-          </button>
-        </form>
       </motion.div>
     </motion.div>
   );

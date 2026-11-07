@@ -4,36 +4,42 @@ import React from "react";
 
 export const HeroOverlay: React.FC = () => {
   return (
-    <div className="absolute inset-0 w-full h-full pointer-events-none select-none">
-      {/* Primary horizontal dark charcoal gradient from left */}
+    <div className="absolute inset-0 w-full h-full pointer-events-none select-none z-10">
+      {/* 1. Deep Midnight Navy Atmospheric Vertical Vignette */}
       <div
         className="absolute inset-0 w-full h-full"
         style={{
           background:
-            "linear-gradient(90deg, rgba(13, 13, 15, 0.98) 0%, rgba(13, 13, 15, 0.94) 24%, rgba(13, 13, 15, 0.80) 36%, rgba(13, 13, 15, 0.40) 50%, rgba(13, 13, 15, 0.08) 64%, rgba(13, 13, 15, 0) 74%)",
+            "linear-gradient(180deg, rgba(5, 13, 19, 0.78) 0%, rgba(5, 13, 19, 0.28) 18%, rgba(5, 13, 19, 0.12) 38%, rgba(5, 13, 19, 0.45) 70%, rgba(5, 13, 19, 0.95) 100%)",
         }}
       />
 
-      {/* Vertical vignette for navbar and lower metrics contrast */}
+      {/* 2. Soft Center Radial Dimming for Crisp Typography Readability */}
       <div
         className="absolute inset-0 w-full h-full"
         style={{
           background:
-            "linear-gradient(180deg, rgba(12, 11, 10, 0.55) 0%, rgba(12, 11, 10, 0.1) 18%, rgba(12, 11, 10, 0) 40%, rgba(12, 11, 10, 0.2) 75%, rgba(12, 11, 10, 0.75) 100%)",
+            "radial-gradient(ellipse at 50% 36%, rgba(5, 13, 19, 0.28) 0%, rgba(5, 13, 19, 0.55) 60%, rgba(5, 13, 19, 0.88) 100%)",
         }}
       />
 
-      {/* Subtle warm sunset glow accentuating the dome on the right */}
+      {/* 3. Subtle Warm Sunset Glow around the Dome */}
       <div
-        className="hidden md:block absolute right-0 top-0 bottom-0 w-1/2 pointer-events-none"
+        className="absolute inset-0 w-full h-full pointer-events-none"
         style={{
           background:
-            "radial-gradient(circle at 70% 45%, rgba(240, 160, 90, 0.07) 0%, rgba(200, 120, 60, 0.03) 45%, transparent 75%)",
+            "radial-gradient(circle at 52% 42%, rgba(217, 173, 104, 0.08) 0%, transparent 60%)",
         }}
       />
 
-      {/* Mobile contrast scrim for crystal-clear readability on small screens */}
-      <div className="sm:hidden absolute inset-0 bg-[#0D0D0F]/65 pointer-events-none" />
+      {/* 4. Foreground Edge Silhouettes */}
+      <div
+        className="absolute inset-x-0 bottom-0 h-40 pointer-events-none"
+        style={{
+          background:
+            "linear-gradient(to top, #050D13 0%, rgba(5, 13, 19, 0.85) 40%, transparent 100%)",
+        }}
+      />
     </div>
   );
 };

@@ -31,7 +31,7 @@ export default function RootLayout({
       lang="en"
       className={`${instrumentSerif.variable} ${geist.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col bg-[#0d0d0f] text-[#EEEAE1] selection:bg-[#cbb69d] selection:text-[#0d0d0f]">
+      <body className="min-h-full flex flex-col bg-[#050D13] text-[#F4E8D0] selection:bg-[#D9AD68] selection:text-[#050D13]">
         {children}
       </body>
     </html>
