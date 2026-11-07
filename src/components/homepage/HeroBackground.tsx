@@ -19,7 +19,7 @@ export const HeroBackground: React.FC = () => {
         className="relative w-full h-full"
       >
         <Image
-          src="/assets/nyaylink/architecture/hero-supreme-court-actual-4k.webp"
+          src="/assets/nyaylink/architecture/hero-supreme-court-sunset-4k.webp"
           alt="Supreme Court of India monumental architecture, Tilak Marg, New Delhi"
           fill
           priority
