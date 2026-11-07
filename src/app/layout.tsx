@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
-import { Instrument_Serif, Geist } from "next/font/google";
+import { Cormorant_Garamond, Geist } from "next/font/google";
 import "./globals.css";
 
-const instrumentSerif = Instrument_Serif({
-  variable: "--font-instrument",
-  weight: "400",
+const cormorant = Cormorant_Garamond({
+  variable: "--font-cormorant",
   subsets: ["latin"],
+  weight: ["400", "500", "600"],
   display: "swap",
 });
 
@@ -29,9 +29,9 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${instrumentSerif.variable} ${geist.variable} h-full antialiased`}
+      className={`${cormorant.variable} ${geist.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col bg-[#050D13] text-[#F4E8D0] selection:bg-[#D9AD68] selection:text-[#050D13]">
+      <body className="min-h-full flex flex-col bg-[#0D0D0F] text-[#F9F6F0] selection:bg-[#F9F6F0] selection:text-[#0D0D0F]">
         {children}
       </body>
     </html>
