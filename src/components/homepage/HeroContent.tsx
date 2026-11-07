@@ -1,8 +1,6 @@
 "use client";
 
 import React from "react";
-import Link from "next/link";
-import { ArrowRight } from "lucide-react";
 import { motion, useReducedMotion } from "framer-motion";
 
 export const HeroContent: React.FC = () => {
@@ -14,13 +12,13 @@ export const HeroContent: React.FC = () => {
       opacity: 1,
       transition: {
         staggerChildren: shouldReduceMotion ? 0 : 0.12,
-        delayChildren: shouldReduceMotion ? 0 : 0.1,
+        delayChildren: shouldReduceMotion ? 0 : 0.08,
       },
     },
   };
 
   const itemVariants = {
-    hidden: { opacity: 0, y: shouldReduceMotion ? 0 : 18 },
+    hidden: { opacity: 0, y: shouldReduceMotion ? 0 : 16 },
     visible: {
       opacity: 1,
       y: 0,
@@ -36,54 +34,33 @@ export const HeroContent: React.FC = () => {
       variants={containerVariants}
       initial="hidden"
       animate="visible"
-      className="relative z-20 max-w-[580px] lg:max-w-[620px] xl:max-w-[660px] flex flex-col justify-center select-none"
+      className="relative z-40 flex flex-col items-center text-center max-w-[1520px] mx-auto select-none px-4"
     >
-      {/* Eyebrow Label matching Reference */}
-      <motion.div variants={itemVariants} className="mb-4 sm:mb-5">
-        <span className="font-sans-body text-[11px] sm:text-[11.5px] lg:text-[12px] uppercase tracking-[0.24em] text-stone-300/85 font-medium">
-          INDIA&apos;S LEGAL ACCESS PLATFORM
-        </span>
-      </motion.div>
-
-      {/* Main Headline matching Reference in Cormorant Garamond */}
-      <motion.div variants={itemVariants} className="mb-5 sm:mb-6">
-        <h1 className="font-serif-editorial text-[54px] sm:text-[68px] md:text-[80px] lg:text-[90px] xl:text-[98px] text-[#F9F6F0] leading-[1.02] tracking-[-0.015em] font-normal">
-          Justice, Made
-          <br />
-          Accessible.
-        </h1>
-      </motion.div>
-
-      {/* Supporting Description matching Reference */}
-      <motion.div variants={itemVariants} className="mb-8 sm:mb-9 max-w-[500px]">
-        <p className="font-sans-body text-[15px] sm:text-[16px] lg:text-[16.5px] leading-[1.58] text-stone-300/80 font-normal">
-          Find verified lawyers, get legal guidance,
-          <br className="hidden sm:inline" />
-          {" "}and manage your cases &mdash; all in one place.
-        </p>
-      </motion.div>
-
-      {/* Primary Dual CTA Buttons matching Reference */}
+      {/* 1. Eyebrow Label with Fine Champagne Divider Lines - completely in front and fully visible */}
       <motion.div
         variants={itemVariants}
-        className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 sm:gap-4"
+        className="flex items-center justify-center space-x-3 sm:space-x-5 mb-3 sm:mb-4 md:mb-5"
       >
-        {/* Primary CTA */}
-        <Link
-          href="#legal-help"
-          className="group inline-flex items-center justify-center gap-2 px-6 sm:px-7 py-3 sm:py-3.5 rounded-lg bg-[#F9F6F0] hover:bg-white text-[#151413] text-[14px] sm:text-[14.5px] font-medium shadow-sm transition-all duration-200 active:scale-[0.99] focus:outline-none focus-visible:ring-2 focus-visible:ring-white/70"
-        >
-          <span>Get Legal Help</span>
-          <ArrowRight className="w-4 h-4 text-[#151413] transition-transform duration-200 group-hover:translate-x-0.5" />
-        </Link>
+        <div className="h-[1px] w-12 sm:w-20 md:w-28 bg-gradient-to-r from-transparent to-[#D9AD68]/80" />
+        <span className="font-sans-body text-[11px] sm:text-[12.5px] md:text-[13.5px] uppercase tracking-[0.28em] sm:tracking-[0.34em] text-[#D9AD68] font-medium whitespace-nowrap">
+          INDIA&apos;S LEGAL ACCESS PLATFORM
+        </span>
+        <div className="h-[1px] w-12 sm:w-20 md:w-28 bg-gradient-to-l from-transparent to-[#D9AD68]/80" />
+      </motion.div>
 
-        {/* Secondary CTA */}
-        <Link
-          href="#join-lawyer"
-          className="inline-flex items-center justify-center px-6 sm:px-7 py-3 sm:py-3.5 rounded-lg bg-transparent hover:bg-white/5 border border-white/25 hover:border-white/45 text-[#F9F6F0] text-[14px] sm:text-[14.5px] font-medium transition-all duration-200 active:scale-[0.99] focus:outline-none focus-visible:ring-2 focus-visible:ring-white/50"
-        >
-          Join as Lawyer
-        </Link>
+      {/* 2. Monumental Central Headline - completely in front and fully visible */}
+      <motion.div variants={itemVariants} className="w-full">
+        <h1 className="font-serif-editorial text-[48px] sm:text-[68px] md:text-[90px] lg:text-[114px] xl:text-[128px] text-[#F4E8D0] leading-[0.96] sm:leading-[0.93] tracking-[-0.015em] font-normal drop-shadow-[0_4px_35px_rgba(0,0,0,0.85)] flex flex-col items-center">
+          {/* Line 1: 'Justice, Made' */}
+          <span className="inline-block tracking-[-0.015em]">
+            Justice, Made
+          </span>
+
+          {/* Line 2: 'Accessible.' */}
+          <span className="inline-block tracking-[-0.01em] sm:tracking-[0.01em] mt-1 sm:mt-2">
+            Accessible.
+          </span>
+        </h1>
       </motion.div>
     </motion.div>
   );
