@@ -4,7 +4,6 @@ import React from "react";
 import { Navbar } from "@/components/navigation/Navbar";
 import { HeroBackground } from "./HeroBackground";
 import { HeroOverlay } from "./HeroOverlay";
-import { HeroDomeForeground } from "./HeroDomeForeground";
 import { HeroContent } from "./HeroContent";
 import { HeroActions } from "./HeroActions";
 import { AIAssistantPanel } from "./AIAssistantPanel";
@@ -15,54 +14,51 @@ export const HeroSection: React.FC = () => {
   return (
     <section className="relative w-full min-h-[100svh] flex flex-col justify-between overflow-hidden bg-[#050D13]">
       {/* =========================================================================
-          SHARED COMPOSITION WRAPPER (Layers 20 & 40 synchronized bit-for-bit)
+          Z-INDEX 0: Solid Midnight Navy Canvas Base
           ========================================================================= */}
+      <div className="absolute inset-0 bg-[#050D13] z-0 pointer-events-none select-none" />
 
-      {/* 1. Layer 20: 4K Background Photograph & Atmospheric Lighting Overlay */}
-      <div className="absolute inset-0 w-full h-full overflow-hidden select-none pointer-events-none z-20">
-        <HeroBackground />
-        <HeroOverlay />
-      </div>
+      {/* =========================================================================
+          Z-INDEX 10: Genuine Supreme Court of India Photograph & Atmospheric Lighting
+          ========================================================================= */}
+      <HeroBackground />
+      <HeroOverlay />
 
-      {/* 2. Layer 30: Eyebrow + Main Headline (Typography behind dome cutout) */}
-      <div className="absolute inset-x-0 top-0 z-30 w-full max-w-[1720px] mx-auto px-4 sm:px-8 lg:px-[5%] flex flex-col items-center justify-start pt-20 sm:pt-24 md:pt-28 lg:pt-32 xl:pt-36 pointer-events-none select-none">
-        <HeroContent />
-      </div>
-
-      {/* 3. Layer 40: Foreground Architectural Dome Cutout (Occluding Layer 30) */}
-      <div className="absolute inset-0 w-full h-full overflow-hidden select-none pointer-events-none z-40">
-        <HeroDomeForeground />
+      {/* =========================================================================
+          Z-INDEX 50: Top Fixed Editorial Navigation
+          ========================================================================= */}
+      <div className="relative z-50 w-full pointer-events-auto">
+        <Navbar />
       </div>
 
       {/* =========================================================================
-          LAYER 50: Navigation & Interactive UI (Always in front & fully interactive)
+          Z-INDEX 40 & 30: Typographic Hero Layer (Entirely in Front of Photograph)
           ========================================================================= */}
-      <div className="relative z-50 w-full min-h-[100svh] flex flex-col justify-between pointer-events-none">
-        {/* Top Transparent Editorial Navigation */}
-        <div className="w-full pointer-events-auto">
-          <Navbar />
-        </div>
+      <div className="relative w-full max-w-[1720px] mx-auto px-4 sm:px-8 lg:px-[5%] flex-1 flex flex-col items-center justify-start pt-6 sm:pt-8 md:pt-10 lg:pt-12 pointer-events-auto">
+        {/* Z-index 40: Eyebrow heading + Main headline */}
+        <HeroContent />
 
-        {/* Center / Lower-Center: Supporting Description & Dual Primary CTAs */}
-        <div className="w-full max-w-[1720px] mx-auto px-4 sm:px-8 lg:px-[5%] flex flex-col items-center justify-center pt-56 sm:pt-64 md:pt-80 lg:pt-[390px] xl:pt-[440px] pointer-events-auto">
+        {/* Z-index 30: Supporting description + Dual Primary CTAs */}
+        <div className="mt-5 sm:mt-6 md:mt-7 w-full">
           <HeroActions />
         </div>
-
-        {/* Lower Content Band: Lower-Left AI Assistant Panel */}
-        <div className="relative w-full max-w-[1720px] mx-auto px-6 sm:px-10 lg:px-[6%] pb-3 sm:pb-5 pointer-events-auto">
-          <div className="flex flex-col sm:flex-row items-end justify-between">
-            <AIAssistantPanel />
-          </div>
-        </div>
-
-        {/* Centered Bottom Tagline */}
-        <div className="pointer-events-auto">
-          <HeroTagline />
-        </div>
-
-        {/* Right Vertical Indicators (Desktop) */}
-        <HeroRightIndicators />
       </div>
+
+      {/* =========================================================================
+          Z-INDEX 50: Lower Content Band (AI Assistant Panel, Tagline, Indicators)
+          ========================================================================= */}
+      {/* Lower-Left AI Assistant Panel */}
+      <div className="relative z-50 w-full max-w-[1720px] mx-auto px-6 sm:px-10 lg:px-[6%] pb-3 sm:pb-4 pointer-events-auto">
+        <div className="flex flex-col sm:flex-row items-end justify-between">
+          <AIAssistantPanel />
+        </div>
+      </div>
+
+      {/* Bottom Centered Tagline & Photographer Attribution */}
+      <HeroTagline />
+
+      {/* Right Vertical Indicators (Desktop) */}
+      <HeroRightIndicators />
     </section>
   );
 };
