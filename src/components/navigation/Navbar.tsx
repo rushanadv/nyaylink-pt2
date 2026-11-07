@@ -52,15 +52,8 @@ export const Navbar: React.FC = () => {
           ))}
         </nav>
 
-        {/* Right: Auth & Get Started Actions */}
-        <div className="hidden sm:flex items-center space-x-4 lg:space-x-5">
-          <Link
-            href="#login"
-            className="text-[13.5px] lg:text-[14px] font-normal text-stone-300/85 hover:text-[#F4E8D0] px-3 py-1.5 transition-colors duration-200"
-          >
-            Log In
-          </Link>
-
+        {/* Right: Get Started Action */}
+        <div className="hidden sm:flex items-center">
           <Link
             href="#get-started"
             className="group inline-flex items-center gap-1.5 text-[13.5px] lg:text-[14px] font-medium text-[#F4E8D0] border border-[#D9AD68]/50 hover:border-[#D9AD68] hover:bg-[#D9AD68]/10 px-5 py-2 rounded-full transition-all duration-200 shadow-[0_2px_12px_rgba(217,173,104,0.1)] active:scale-[0.99] focus:outline-none focus-visible:ring-1 focus-visible:ring-[#D9AD68]"
