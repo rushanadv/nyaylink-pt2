@@ -1,6 +1,13 @@
 import type { Metadata } from "next";
-import { Instrument_Serif, Geist } from "next/font/google";
+import { Bodoni_Moda, Instrument_Serif, Geist } from "next/font/google";
 import "./globals.css";
+
+const bodoniModa = Bodoni_Moda({
+  variable: "--font-bodoni",
+  subsets: ["latin"],
+  display: "swap",
+  weight: ["400", "500", "600", "700", "800", "900"],
+});
 
 const instrumentSerif = Instrument_Serif({
   variable: "--font-instrument",
@@ -29,7 +36,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${instrumentSerif.variable} ${geist.variable} h-full antialiased`}
+      className={`${bodoniModa.variable} ${instrumentSerif.variable} ${geist.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-[#050D13] text-[#F4E8D0] selection:bg-[#D9AD68] selection:text-[#050D13]">
         {children}

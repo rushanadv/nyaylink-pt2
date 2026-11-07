@@ -36,28 +36,37 @@ export const HeroContent: React.FC = () => {
       animate="visible"
       className="relative z-40 flex flex-col items-center text-center max-w-[1520px] mx-auto select-none px-4"
     >
-      {/* 1. Eyebrow Label with Fine Champagne Divider Lines - completely in front and fully visible */}
+      {/* 1. Eyebrow Heading: INDIA'S LEGAL ACCESS PLATFORM with Champagne Divider Lines */}
       <motion.div
         variants={itemVariants}
         className="flex items-center justify-center space-x-3 sm:space-x-5 mb-3 sm:mb-4 md:mb-5"
       >
-        <div className="h-[1px] w-12 sm:w-20 md:w-28 bg-gradient-to-r from-transparent to-[#D9AD68]/80" />
-        <span className="font-sans-body text-[11px] sm:text-[12.5px] md:text-[13.5px] uppercase tracking-[0.28em] sm:tracking-[0.34em] text-[#D9AD68] font-medium whitespace-nowrap">
+        <div className="h-[1px] w-10 sm:w-16 md:w-24 bg-gradient-to-r from-transparent via-[#F4D59C]/50 to-[#E6AE65]/90" />
+        <span className="font-sans-body text-[10.5px] sm:text-[12px] md:text-[13px] uppercase tracking-[0.32em] sm:tracking-[0.40em] text-[#F4D59C] font-medium whitespace-nowrap drop-shadow-[0_2px_10px_rgba(0,0,0,0.8)]">
           INDIA&apos;S LEGAL ACCESS PLATFORM
         </span>
-        <div className="h-[1px] w-12 sm:w-20 md:w-28 bg-gradient-to-l from-transparent to-[#D9AD68]/80" />
+        <div className="h-[1px] w-10 sm:w-16 md:w-24 bg-gradient-to-l from-transparent via-[#F4D59C]/50 to-[#E6AE65]/90" />
       </motion.div>
 
-      {/* 2. Monumental Central Headline - completely in front and fully visible */}
-      <motion.div variants={itemVariants} className="w-full">
-        <h1 className="font-serif-editorial text-[48px] sm:text-[68px] md:text-[90px] lg:text-[114px] xl:text-[128px] text-[#F4E8D0] leading-[0.96] sm:leading-[0.93] tracking-[-0.015em] font-normal drop-shadow-[0_4px_35px_rgba(0,0,0,0.85)] flex flex-col items-center">
+      {/* 2. Monumental Central Headline in Bodoni Moda with Warm Metallic Champagne Gold & Luminous Glow */}
+      <motion.div variants={itemVariants} className="relative w-full flex flex-col items-center">
+        {/* Gentle ambient golden halo behind typography */}
+        <div
+          className="absolute -inset-x-24 -inset-y-12 sm:-inset-x-32 sm:-inset-y-20 bg-[radial-gradient(ellipse_80%_60%_at_50%_48%,rgba(244,213,156,0.16)_0%,rgba(230,174,101,0.06)_50%,transparent_78%)] pointer-events-none blur-3xl z-[-1]"
+          aria-hidden="true"
+        />
+
+        <h1 
+          className="font-serif-editorial font-normal leading-[0.90] sm:leading-[0.88] lg:leading-[0.87] tracking-[-0.024em] sm:tracking-[-0.028em] flex flex-col items-center gold-headline-glow"
+          style={{ fontSize: "clamp(2.85rem, 9.8vw, 11.85rem)" }}
+        >
           {/* Line 1: 'Justice, Made' */}
-          <span className="inline-block tracking-[-0.015em]">
+          <span className="inline-block gold-text-gradient px-1">
             Justice, Made
           </span>
 
           {/* Line 2: 'Accessible.' */}
-          <span className="inline-block tracking-[-0.01em] sm:tracking-[0.01em] mt-1 sm:mt-2">
+          <span className="inline-block gold-text-gradient px-1 mt-0.5 sm:mt-1 lg:mt-1.5">
             Accessible.
           </span>
         </h1>
