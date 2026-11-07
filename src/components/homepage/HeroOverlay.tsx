@@ -4,7 +4,7 @@ import React from "react";
 
 export const HeroOverlay: React.FC = () => {
   return (
-    <div className="absolute inset-0 w-full h-full pointer-events-none select-none z-10">
+    <div className="absolute inset-0 w-full h-full pointer-events-none select-none z-5">
       {/* 1. Deep Midnight Navy Atmospheric Vertical Vignette */}
       <div
         className="absolute inset-0 w-full h-full"
