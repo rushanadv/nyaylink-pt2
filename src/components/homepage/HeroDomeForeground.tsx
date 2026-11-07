@@ -22,7 +22,7 @@ export const HeroDomeForeground: React.FC = () => {
         className="relative w-full h-full"
       >
         <Image
-          src="/assets/nyaylink/architecture/hero-courthouse-dome-cutout.webp"
+          src="/assets/nyaylink/architecture/hero-dome-foreground.webp"
           alt=""
           fill
           priority
